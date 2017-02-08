@@ -1,0 +1,18 @@
+{
+    "name": "nandokstronet/api_masters_2",
+    "require": {
+        "silex/silex": "^2.0",
+        "twig/twig": "^1.31"
+    },
+    "authors": [
+        {
+            "name": "Nanderson Castro",
+            "email": "nandokstro@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "ApiMaster\\" : "src/"
+        }
+    }
+}
