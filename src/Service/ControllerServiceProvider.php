@@ -1,7 +1,7 @@
 <?php
 namespace ApiMaster\Service;
 
-use ApiMaster\Controller\HomeController;
+use ApiMaster\Controller\BeerController;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 
@@ -10,13 +10,12 @@ class ControllerServiceProvider implements ServiceProviderInterface
     public function register(Container $app)
     {
         /**
-         * Home Controller
+         * Beer Controller
          * @param Container $app
-         * @return HomeController
+         * @return BeerController
          */
-        $app['home'] = function (Container $app){
-            return new HomeController($app);
+        $app['beers'] = function (Container $app){
+            return new BeerController($app);
         };
     }
-
 }
