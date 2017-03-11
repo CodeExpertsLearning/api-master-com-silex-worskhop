@@ -3,7 +3,9 @@ require 'bootstrap.php';
 
 use ApiMaster\Service\ControllerServiceProvider;
 use ApiMaster\Service\RouterServiceProvider;
+use ApiMaster\Service\JWTServiceProvider;
 use Silex\Application;
+use Symfony\Component\HttpFoundation\Request;
 
 $app = new Application();
 
@@ -14,7 +16,12 @@ $app->register(new Silex\Provider\ServiceControllerServiceProvider());
 
 $app->register(new RouterServiceProvider());
 $app->register(new ControllerServiceProvider());
-
+$app->register(new JWTServiceProvider(), [
+    'iss' => $_SERVER['SERVER_NAME'],
+    'secret' => 'xyzxyz',
+    'expires' => 3600,
+    'signer' => 'HMACS'
+]);
 
 /**
  * Registra o Doctrine ORM Service Provider
