@@ -12,6 +12,10 @@ $app = new Application();
 $app['debug'] = true;
 $app['api_version'] = '/v1';
 
+$app->register(new JDesrosiers\Silex\Provider\CorsServiceProvider(), [
+    "cors.allowOrigin" => "*",
+]);
+
 $app->register(new Silex\Provider\ServiceControllerServiceProvider());
 
 $app->register(new RouterServiceProvider());

@@ -13,17 +13,17 @@ class RouterServiceProvider implements ServiceProviderInterface
         /**
          * Main Route
          */
-        $app->get($app['api_version'] . '/beers', 'beers:index')
-            ->before(function(Request $request, Container $app){
-                $token =  $request->headers->get('Authorization');
-                $token = str_replace('Bearer ', '', $token);
-
-                try {
-                    $app['jwt']->validateToken($token);
-                } catch (\Exception $e) {
-                    return $app->json(['msg'=> 'Token Inválido!'], 401);
-                }
-            });
+        $app->get($app['api_version'] . '/beers', 'beers:index');
+//            ->before(function(Request $request, Container $app){
+//                $token =  $request->headers->get('Authorization');
+//                $token = str_replace('Bearer ', '', $token);
+//
+//                try {
+//                    $app['jwt']->validateToken($token);
+//                } catch (\Exception $e) {
+//                    return $app->json(['msg'=> 'Token Inválido!'], 401);
+//                }
+//            });
 
         /**
          * 
@@ -51,6 +51,9 @@ class RouterServiceProvider implements ServiceProviderInterface
         $app->after(function(Request $request, Response $response) {
             $response->headers->set('Content-Type', 'application/json');
         });
+
+        $app["cors-enabled"]($app);
+
     }
 
 }

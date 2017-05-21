@@ -8,7 +8,8 @@
         "dflydev/doctrine-orm-service-provider": "2.*",
         "jms/serializer": "^1.3",
         "lcobucci/jwt": "3.3.x-dev",
-        "illuminate/hashing": "^5.4"
+        "illuminate/hashing": "^5.4",
+        "jdesrosiers/silex-cors-provider": "^1.4"
     },
     "config": {
         "bin-dir": "bin/"
