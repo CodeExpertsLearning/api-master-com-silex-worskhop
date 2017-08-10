@@ -14,6 +14,7 @@ class RouterServiceProvider implements ServiceProviderInterface
          * Main Route
          */
         $app->get($app['api_version'] . '/beers', 'beers:index');
+        $app->post($app['api_version'] . '/beers', 'beers:create');
 //            ->before(function(Request $request, Container $app){
 //                $token =  $request->headers->get('Authorization');
 //                $token = str_replace('Bearer ', '', $token);
@@ -28,7 +29,7 @@ class RouterServiceProvider implements ServiceProviderInterface
         /**
          * 
          */
-//        $app->get($app['api_version'] . '/beers/{id}', 'beers:getBeer');
+       $app->get($app['api_version'] . '/beers/{id}', 'beers:getBeer');
 
         /**
          * Auth
