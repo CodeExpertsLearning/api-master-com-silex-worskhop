@@ -52,10 +52,21 @@ class BeerController
 
         $beer = new \ApiMaster\Model\Beer();
 
+        list($type, $dataImg) = explode(';', $data['img']);
+        list(, $dataImg)      = explode(',', $dataImg);
+        $dataImg = base64_decode($dataImg);
+
+        $ext = $type == 'data:image/png' ? '.png' : '.jpg';
+        
+        $newName = uniqid() . microtime() . $ext;
+
+        file_put_contents(UPLOAD_FOLDER . $newName, $dataImg);
+
         $beer->setName($data['name'])
              ->setPrice($data['price'])
              ->setType($data['type'])
              ->setMark($data['mark'])
+             ->setImg($newName)
              ->setCreatedAt(new \DateTime('now', new \DateTimeZone("America/Sao_Paulo")))
              ->setUpdatedAt(new \DateTime('now', new \DateTimeZone("America/Sao_Paulo")));
         

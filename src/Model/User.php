@@ -41,6 +41,14 @@ class User
      */
     private $password;
 
+   /**
+     * @var string
+     *
+     * @ORM\Column(name="img", type="string", length=255, nullable=true)
+     */
+    private $img;
+
+
     /**
      * @var \DateTime
      *
@@ -119,6 +127,24 @@ class User
     public function setPassword($password)
     {
         $this->password = $password;
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * @param  $img
+     * @return User
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
         return $this;
     }
 

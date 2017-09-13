@@ -7,6 +7,8 @@ use Doctrine\ORM\Mapping\Driver\AnnotationDriver;
 use Doctrine\Common\Annotations\AnnotationReader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 
+define('UPLOAD_FOLDER', __DIR__ . '/public/assets/img/uploads/');
+
 $isDevMode = false;
 
 $paths = array(__DIR__ . '/src/Model');
@@ -15,7 +17,7 @@ $dbParams = array(
     'driver'   => 'pdo_mysql',
     'user'     => 'root',
     'password' => '',
-    'dbname'   => 'api_master',
+    'dbname'   => 'api_master_2',
     'host'     => '127.0.0.1'
 );
 

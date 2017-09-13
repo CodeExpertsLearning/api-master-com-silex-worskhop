@@ -49,6 +49,14 @@ class Beer
     private $mark;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="img", type="string", length=255, nullable=true)
+     */
+    private $img;
+
+
+    /**
      * @var \DateTime
      *
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
@@ -145,6 +153,24 @@ class Beer
     public function setMark($mark)
     {
         $this->mark = $mark;
+        return $this;
+    }
+
+    /**
+     * @return Beer
+     */
+    public function getImg()
+    {
+        return $this->img;
+    }
+
+    /**
+     * @param  $img
+     * @return Beer
+     */
+    public function setImg($img)
+    {
+        $this->img = $img;
         return $this;
     }
 
