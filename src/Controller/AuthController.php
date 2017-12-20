@@ -20,7 +20,9 @@ class AuthController
 
     public function login(Request $request)
     {
-        $data = $request->request->all();
+        $data = file_get_contents("php://input");
+        $data = json_decode($data);
+        $data = (array) $data;
 
         #validations
 
