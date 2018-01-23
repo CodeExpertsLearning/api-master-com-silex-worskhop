@@ -31,4 +31,9 @@ AnnotationRegistry::registerFile(
     __DIR__ . '/vendor/doctrine/orm/lib/Doctrine/ORM/Mapping/Driver/DoctrineAnnotations.php'
 );
 
+AnnotationRegistry::registerAutoloadNamespace(
+	'JMS\Serializer\Annotation',
+	__DIR__ . "/vendor/jms/serializer/src"
+);
+
 $entityManager = EntityManager::create($dbParams, $config);

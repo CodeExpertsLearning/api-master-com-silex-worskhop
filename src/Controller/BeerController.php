@@ -1,6 +1,7 @@
 <?php
 namespace ApiMaster\Controller;
 
+use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Response;
@@ -39,7 +40,7 @@ class BeerController
                       ->find($id);
 
         $beers = SerializerBuilder::create()->build()
-                                    ->serialize($beers, 'json');
+                                    ->serialize($beers, 'json', SerializationContext::create()->setGroups(array('list')));
         
         return new Response($beers, 200);
     }

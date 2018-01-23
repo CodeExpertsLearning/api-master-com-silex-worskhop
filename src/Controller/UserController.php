@@ -3,6 +3,7 @@ namespace ApiMaster\Controller;
 
 use ApiMaster\Model\User;
 use Illuminate\Hashing\BcryptHasher;
+use JMS\Serializer\SerializationContext;
 use JMS\Serializer\SerializerBuilder;
 use Silex\Application;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,7 +37,7 @@ class UserController
 
         $build = SerializerBuilder::create()->build();
 
-        return new Response($build->serialize($users, 'json'), 200);
+        return new Response($build->serialize($users, 'json', SerializationContext::create()->setGroups(array('list'))), 200);
     }
 
     public function create(Request $request)

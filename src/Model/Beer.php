@@ -2,6 +2,7 @@
 namespace ApiMaster\Model;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as JMS;
 
 /**
  * Beers
@@ -17,11 +18,14 @@ class Beer
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * 
+     * @JMS\Groups({"list"})
      */
     private $id;
 
     /**
      * @var string
+     * @JMS\Groups({"list"})
      *
      * @ORM\Column(name="name", type="string", length=150, nullable=true)
      */
@@ -29,28 +33,34 @@ class Beer
 
     /**
      * @var float
-     *
+     * @JMS\Groups({"list"})
+     * 
      * @ORM\Column(name="price", type="float", precision=10, scale=2, nullable=true)
      */
     private $price;
 
     /**
      * @var string
-     *
+     * @JMS\Groups({"list"})
+     * 
      * @ORM\Column(name="type", type="string", length=30, nullable=true)
      */
     private $type;
 
     /**
      * @var string
-     *
+     *    
+     * @JMS\Groups({"list"})
+     * 
      * @ORM\Column(name="mark", type="string", length=30, nullable=true)
      */
     private $mark;
 
     /**
      * @var string
-     *
+     * 
+     * @JMS\Groups({"list"})
+     * 
      * @ORM\Column(name="img", type="string", length=255, nullable=true)
      */
     private $img;
@@ -58,14 +68,18 @@ class Beer
 
     /**
      * @var \DateTime
-     *
+     * 
+     * @JMS\Groups({"list"})
+     * 
      * @ORM\Column(name="created_at", type="datetime", nullable=true)
      */
     private $createdAt;
 
     /**
      * @var \DateTime
-     *
+     * 
+     * @JMS\Groups({"list"})
+     * 
      * @ORM\Column(name="updated_at", type="datetime", nullable=true)
      */
     private $updatedAt;

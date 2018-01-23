@@ -2,6 +2,7 @@
 namespace ApiMaster\Model;
 
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as JMS;
 
 /**
  * Users
@@ -17,33 +18,38 @@ class User
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
+     * 
+     * @JMS\Groups({"list"})
      */
     private $id;
 
     /**
      * @var string
-     *
+     * @JMS\Groups({"list"})
+     * 
      * @ORM\Column(name="name", type="string", length=150, nullable=true)
      */
     private $name;
 
     /**
      * @var string
-     *
+     * @JMS\Groups({"list"})
+     * 
      * @ORM\Column(name="email", type="string", length=80, nullable=true)
      */
     private $email;
 
     /**
      * @var string
-     *
+     *  @JMS\Groups({"listPass"})
      * @ORM\Column(name="password", type="string", length=255, nullable=true)
      */
     private $password;
 
    /**
      * @var string
-     *
+     *  @JMS\Groups({"list"})
+     * 
      * @ORM\Column(name="img", type="string", length=255, nullable=true)
      */
     private $img;
